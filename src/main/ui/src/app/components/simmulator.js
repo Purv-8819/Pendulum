@@ -6,7 +6,7 @@ import p5 from "p5";
 const sketch = (p) => {
   // p is a reference to the p5 instance this sketch is attached to
   p.setup = function () {
-    let canvas = p.createCanvas(p.windowWidth / 2, p.windowWidth / 2);
+    let canvas = p.createCanvas(p.windowWidth * 0.45, p.windowWidth * 0.45);
     canvas.style("margin: 0px");
   };
 
@@ -26,7 +26,7 @@ const sketch = (p) => {
     } else if (p.mouseX > p.width - 60) {
       xPos = p.width - 60;
     } else {
-      xPos = p.mouseX;
+      xPos = p.mouseX - 30;
     }
     p.rect(xPos, p.height / 2 - 20, 60, 40);
   };
