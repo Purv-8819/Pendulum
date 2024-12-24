@@ -13,7 +13,14 @@ const sketch = (p) => {
     let canvas = p.createCanvas(p.windowWidth * 0.45, p.windowWidth * 0.45);
     canvas.style("margin: 0px");
     pendulumTest = new Pendulum(p, p.width / 2, p.height / 2, 100, 10);
-    trolleyTest = new Trolley(p, p.width / 2, p.height / 2, 100, 10);
+    trolleyTest = new Trolley(
+      p,
+      p.width / 2,
+      p.height / 2,
+      100,
+      10,
+      pendulumTest
+    );
     p.rectMode(p.CENTER);
   };
 
@@ -29,6 +36,9 @@ const sketch = (p) => {
     if (p.keyCode == p.RIGHT_ARROW) {
       trolleyTest.moveRight();
     }
+    if (p.keyCode == p.DOWN_ARROW) {
+      trolleyTest.resetSpeed();
+    }
   };
 
   p.draw = function () {
@@ -39,8 +49,8 @@ const sketch = (p) => {
     p.rect(p.width / 2, p.height / 2, p.width, 3);
 
     //Test pendulum and trolley update and draw
-    pendulumTest.update();
-    pendulumTest.display();
+    // pendulumTest.update();
+    // pendulumTest.display();
     trolleyTest.update();
     trolleyTest.display();
   };

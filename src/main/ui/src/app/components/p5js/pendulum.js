@@ -1,6 +1,6 @@
 class Pendulum {
   //Add a parent controller/trolley to the pendulum
-  constructor(p, x, y, length, trolley) {
+  constructor(p, x, y, length, trolley = null) {
     this.p = p;
     this.origin = this.p.createVector(x, y);
     this.position = this.p.createVector();
@@ -10,6 +10,13 @@ class Pendulum {
     this.aAcceleration = 0.0;
     this.gravity = 0.4; // Arbitrary constant
     this.trolley = trolley;
+  }
+
+  //Set Trolley
+  //Set refrence to trolley that its attached to
+  setTrolley(trolley) {
+    this.trolley = trolley;
+    return this;
   }
 
   update() {
@@ -26,12 +33,17 @@ class Pendulum {
       this.length * this.p.sin(this.angle),
       this.length * this.p.cos(this.angle)
     );
-    this.position.add(this.origin);
+    this.position.add(this.trolley.pos);
 
     this.p.stroke(0);
     this.p.strokeWeight(2);
     this.p.fill(127);
-    this.p.line(this.origin.x, this.origin.y, this.position.x, this.position.y);
+    this.p.line(
+      this.trolley.pos.x,
+      this.trolley.pos.y,
+      this.position.x,
+      this.position.y
+    );
     this.p.ellipse(this.position.x, this.position.y, 16, 16);
   }
 }
