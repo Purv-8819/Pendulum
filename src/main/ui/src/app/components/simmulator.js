@@ -2,12 +2,15 @@
 
 import { useEffect, useRef } from "react";
 import p5 from "p5";
+import Pendulum from "./p5js/pendulum";
 
 const sketch = (p) => {
   // p is a reference to the p5 instance this sketch is attached to
+  let pendulumTest;
   p.setup = function () {
     let canvas = p.createCanvas(p.windowWidth * 0.45, p.windowWidth * 0.45);
     canvas.style("margin: 0px");
+    pendulumTest = new Pendulum(p, p.width / 2, p.height / 2, 100, 10);
   };
 
   p.draw = function () {
@@ -17,18 +20,20 @@ const sketch = (p) => {
     p.fill(255, 0, 0);
     p.rect(0, p.height / 2, p.width, 2);
 
-    //Carrying box
-    p.fill(0, 0, 255);
-    //X pos
-    var xPos = 0;
-    if (p.mouseX < 0) {
-      xPos = 0;
-    } else if (p.mouseX > p.width - 60) {
-      xPos = p.width - 60;
-    } else {
-      xPos = p.mouseX - 30;
-    }
-    p.rect(xPos, p.height / 2 - 20, 60, 40);
+    // //Carrying box
+    // p.fill(0, 0, 255);
+    // //X pos
+    // var xPos = 0;
+    // if (p.mouseX < 0) {
+    //   xPos = 0;
+    // } else if (p.mouseX > p.width - 60) {
+    //   xPos = p.width - 60;
+    // } else {
+    //   xPos = p.mouseX - 30;
+    // }
+    // p.rect(xPos, p.height / 2 - 20, 60, 40);
+    pendulumTest.update();
+    pendulumTest.display();
   };
 };
 
