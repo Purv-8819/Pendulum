@@ -1,5 +1,10 @@
 "use client";
-import Simmulator from "./components/simmulator.js";
+// import Simmulator from "./components/simmulator.js";
+import dynamic from "next/dynamic";
+
+const DynamicSimmulator = dynamic(() => import("./components/simmulator"), {
+  ssr: false,
+});
 
 // Button Component
 const Button = ({ onClick, className, label }) => (
@@ -24,7 +29,7 @@ export default function Home() {
       {/*Body*/}
       <div className="grid grid-cols-10 gap-4 shadow-md justify-between rounded-lg w-full mb-auto">
         <div className="col-span-6 p-4 text-black m-4">
-          <Simmulator></Simmulator>
+          <DynamicSimmulator></DynamicSimmulator>
         </div>
         <div className="col-span-4 text-blackf m-4">
           <form className=" items-center text-black">
