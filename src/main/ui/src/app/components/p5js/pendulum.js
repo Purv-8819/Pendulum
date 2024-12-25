@@ -17,6 +17,8 @@ class Pendulum {
     this.aAcceleration = 0.0;
     //Gravity
     this.gravity = 0.4; // Arbitrary constant
+    //Air resistance constant
+    this.airResistance = 0.0001;
     //Trolley Instance
     this.trolley = trolley;
   }
@@ -36,7 +38,10 @@ class Pendulum {
     var gravityComponent =
       (this.gravity * this.p.sin(this.angle)) / this.length;
 
-    this.aAcceleration = -linAccelComponent - gravityComponent;
+    //Air resistance
+    var airResistance = this.aVelocity * this.aVelocity * this.airResistance;
+
+    this.aAcceleration = -linAccelComponent - gravityComponent - airResistance;
     this.aVelocity += this.aAcceleration;
     //limit the velocity
     if (this.aVelocity > 7.5) {
