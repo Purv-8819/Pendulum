@@ -31,13 +31,16 @@ const sketch = (p) => {
 
   p.keyPressed = function () {
     if (p.keyCode == p.LEFT_ARROW) {
-      trolleyTest.moveLeft();
+      trolleyTest.pushLeft();
     }
     if (p.keyCode == p.RIGHT_ARROW) {
-      trolleyTest.moveRight();
+      trolleyTest.pushRight();
     }
     if (p.keyCode == p.DOWN_ARROW) {
-      trolleyTest.resetSpeed();
+      trolleyTest.resetTrolley();
+    }
+    if (p.keyCode == p.UP_ARROW) {
+      trolleyTest.resetSystem();
     }
   };
 
