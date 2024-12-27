@@ -1,4 +1,4 @@
-package dev.purv.pendulum.ai.activationfunction;
+package dev.purv.pendulum.ai.nueralnetwork.activationfunction;
 
 import java.util.function.DoubleUnaryOperator;
 

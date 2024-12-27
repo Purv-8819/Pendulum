@@ -1,4 +1,4 @@
-package dev.purv.pendulum.ai.costfunction;
+package dev.purv.pendulum.ai.nueralnetwork.costfunction;
 
 import dev.purv.pendulum.linearalgebra.Vector;
 
