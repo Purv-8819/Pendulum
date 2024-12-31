@@ -54,7 +54,7 @@ public class Layer {
     * @return The product of weights and previous with the bias
     */
    private Vector calcOutput(Vector activationOfPreviousLayer){
-      return LinearAlgebra.multiply(weights, activationOfPreviousLayer).sub(bias);
+      return LinearAlgebra.multiply(weights, activationOfPreviousLayer).add(bias);
    }
 
    /**
