@@ -65,7 +65,7 @@ public class NueralNetwork {
 
       //Go throuhg all the layers and calc the activation based on the pervious layer
       for(int i = 0; i<layers.size(); i++){
-         result.add(layers.get(i).calcActivation(result.get(i-1)));
+         result.add(layers.get(i).calcActivation(result.get(i)));
       }
       //Remove the input from the result
       result.remove(0);
