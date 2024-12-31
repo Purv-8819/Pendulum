@@ -11,6 +11,6 @@ public class Randomizer {
    }
 
    public double getInRange() {
-      return ThreadLocalRandom.current().nextDouble(min, max);
+      return min + ThreadLocalRandom.current().nextDouble()* (max-min);
    }
 }
