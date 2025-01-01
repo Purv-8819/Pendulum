@@ -110,7 +110,21 @@ public class TestNueralNetwork {
 
       assertEquals(2, output.get(0));
 
-      NueralNetwork medium = new NueralNetwork.Builder(2, 2).withBiasRandomizer(set1).withWeightRandomizer(set2).withActivationFunction(x->x).addLayer(3).build();
+      NueralNetwork medium = new NueralNetwork.Builder(2, 2).withBiasRandomizer(set2).withWeightRandomizer(set1).withActivationFunction(x->x).addLayer(3).build();
+
+      List<Vector> outputList = medium.calcAllLayers(new Vector(0d, 0d));
+      assertEquals(2, outputList.size());
+      
+      //First Layer
+      Vector first = outputList.get(0);
+      Vector expectedFirst = new Vector(2d, 2d, 2d);
+      assertEquals(3, first.size());
+      assertEquals(expectedFirst, first);
+
+      Vector second = outputList.get(1);
+      Vector expectedSecond = new Vector(8d, 8d);
+      assertEquals(2, second.size());
+      assertEquals(expectedSecond, second);
    }
 
 }
