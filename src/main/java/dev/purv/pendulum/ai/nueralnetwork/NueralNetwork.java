@@ -46,7 +46,7 @@ public class NueralNetwork {
       return doCalcLayers(inputVector);
    }
 
-   private void validateInputVector(Vector inputVector){
+   protected void validateInputVector(Vector inputVector){
       if(inputVector.size() != inputSize){
          throw new IllegalArgumentException("Input vector must be same size as Nueral network first layer");
       }
