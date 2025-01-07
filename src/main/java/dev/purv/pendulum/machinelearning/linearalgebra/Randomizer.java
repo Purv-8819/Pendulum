@@ -1,4 +1,4 @@
-package dev.purv.pendulum.linearalgebra;
+package dev.purv.pendulum.machinelearning.linearalgebra;
 
 import java.util.concurrent.ThreadLocalRandom;
 

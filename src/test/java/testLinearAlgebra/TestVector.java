@@ -1,10 +1,11 @@
 package testLinearAlgebra;
 
-import dev.purv.pendulum.linearalgebra.LinearAlgebra;
-import dev.purv.pendulum.linearalgebra.Matrix;
-import dev.purv.pendulum.linearalgebra.Vector;
-
 import org.junit.jupiter.api.Test;
+
+import dev.purv.pendulum.machinelearning.linearalgebra.LinearAlgebra;
+import dev.purv.pendulum.machinelearning.linearalgebra.Matrix;
+import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestVector {

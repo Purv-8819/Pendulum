@@ -1,4 +1,4 @@
-package dev.purv.pendulum.ai.nueralnetwork;
+package dev.purv.pendulum.machinelearning.ai.nueralnetwork;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import dev.purv.pendulum.ai.nueralnetwork.activationfunction.ActivationFunction;
-import dev.purv.pendulum.ai.nueralnetwork.costfunction.CostFunction;
-import dev.purv.pendulum.linearalgebra.ApplyAble;
-import dev.purv.pendulum.linearalgebra.Matrix;
-import dev.purv.pendulum.linearalgebra.Vector;
+import dev.purv.pendulum.machinelearning.ai.nueralnetwork.activationfunction.ActivationFunction;
+import dev.purv.pendulum.machinelearning.ai.nueralnetwork.costfunction.CostFunction;
+import dev.purv.pendulum.machinelearning.linearalgebra.ApplyAble;
+import dev.purv.pendulum.machinelearning.linearalgebra.Matrix;
+import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 
 public class Backpropagation {
 

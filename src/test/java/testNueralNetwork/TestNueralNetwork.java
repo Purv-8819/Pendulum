@@ -1,10 +1,10 @@
 package testNueralNetwork;
 
-import dev.purv.pendulum.ai.nueralnetwork.Layer;
-import dev.purv.pendulum.ai.nueralnetwork.NueralNetwork;
-import dev.purv.pendulum.linearalgebra.Matrix;
-import dev.purv.pendulum.linearalgebra.Randomizer;
-import dev.purv.pendulum.linearalgebra.Vector;
+import dev.purv.pendulum.machinelearning.ai.nueralnetwork.Layer;
+import dev.purv.pendulum.machinelearning.ai.nueralnetwork.NueralNetwork;
+import dev.purv.pendulum.machinelearning.linearalgebra.Matrix;
+import dev.purv.pendulum.machinelearning.linearalgebra.Randomizer;
+import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,11 +1,11 @@
-package dev.purv.pendulum.ai.nueralnetwork;
+package dev.purv.pendulum.machinelearning.ai.nueralnetwork;
 
 
-import dev.purv.pendulum.ai.nueralnetwork.activationfunction.ActivationFunction;
-import dev.purv.pendulum.linearalgebra.LinearAlgebra;
-import dev.purv.pendulum.linearalgebra.Matrix;
-import dev.purv.pendulum.linearalgebra.Randomizer;
-import dev.purv.pendulum.linearalgebra.Vector;
+import dev.purv.pendulum.machinelearning.ai.nueralnetwork.activationfunction.ActivationFunction;
+import dev.purv.pendulum.machinelearning.linearalgebra.LinearAlgebra;
+import dev.purv.pendulum.machinelearning.linearalgebra.Matrix;
+import dev.purv.pendulum.machinelearning.linearalgebra.Randomizer;
+import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 
 public class Layer {
 

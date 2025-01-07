@@ -1,6 +1,6 @@
-package dev.purv.pendulum.ai.nueralnetwork.costfunction;
+package dev.purv.pendulum.machinelearning.ai.nueralnetwork.costfunction;
 
-import dev.purv.pendulum.linearalgebra.Vector;
+import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 
 public class SummedCostFunction implements CostFunction{
 

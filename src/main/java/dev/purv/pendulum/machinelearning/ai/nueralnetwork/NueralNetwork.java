@@ -1,13 +1,13 @@
-package dev.purv.pendulum.ai.nueralnetwork;
+package dev.purv.pendulum.machinelearning.ai.nueralnetwork;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import dev.purv.pendulum.ai.nueralnetwork.activationfunction.ActivationFunction;
-import dev.purv.pendulum.ai.nueralnetwork.activationfunction.Sigmoid;
-import dev.purv.pendulum.linearalgebra.Randomizer;
-import dev.purv.pendulum.linearalgebra.Vector;
+import dev.purv.pendulum.machinelearning.ai.nueralnetwork.activationfunction.ActivationFunction;
+import dev.purv.pendulum.machinelearning.ai.nueralnetwork.activationfunction.Sigmoid;
+import dev.purv.pendulum.machinelearning.linearalgebra.Randomizer;
+import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 
 public class NueralNetwork {
    //Member Variables
