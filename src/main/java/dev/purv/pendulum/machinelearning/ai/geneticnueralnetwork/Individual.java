@@ -1,7 +1,5 @@
 package dev.purv.pendulum.machinelearning.ai.geneticnueralnetwork;
 
-import javax.management.RuntimeErrorException;
-
 public interface Individual <T extends Individual<T>> extends Comparable<Individual<T>>{
    /**
     * Calculate the fitness of this individual
@@ -22,6 +20,7 @@ public interface Individual <T extends Individual<T>> extends Comparable<Individ
     * Get the current type that is implement Individual
     * @return instance of class
     */
+   @SuppressWarnings("unchecked")
    default T getThis(){
       try {
          return (T) this;
