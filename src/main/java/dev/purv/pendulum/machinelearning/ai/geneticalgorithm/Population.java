@@ -1,4 +1,4 @@
-package dev.purv.pendulum.machinelearning.ai.geneticnueralnetwork;
+package dev.purv.pendulum.machinelearning.ai.geneticalgorithm;
 
 import java.util.ArrayList;
 import java.util.Collection;

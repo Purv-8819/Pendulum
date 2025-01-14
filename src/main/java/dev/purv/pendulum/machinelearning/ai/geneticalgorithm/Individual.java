@@ -1,4 +1,4 @@
-package dev.purv.pendulum.machinelearning.ai.geneticnueralnetwork;
+package dev.purv.pendulum.machinelearning.ai.geneticalgorithm;
 
 public interface Individual <T extends Individual<T>> extends Comparable<Individual<T>>{
    /**
