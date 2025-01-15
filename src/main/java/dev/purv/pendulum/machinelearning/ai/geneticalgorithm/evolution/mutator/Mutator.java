@@ -4,5 +4,9 @@ import dev.purv.pendulum.machinelearning.ai.geneticalgorithm.Individual;
 import dev.purv.pendulum.machinelearning.ai.geneticalgorithm.Population;
 
 public interface Mutator <T extends Individual<T>> {
-   void mutate(Population<T> pop);
+   /**
+    * Mutatate the individuals in a population
+    * @param population the population to mutate
+    */
+   void mutate(Population<T> population);
 }
