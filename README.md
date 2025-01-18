@@ -14,6 +14,7 @@ A dynamic web application for creating, training, and simulating neural networks
 ### Backend
 
 - **Dynamic Neural Network Creation**: Train neural networks using specified configurations.
+- **Builder-Pattern**: Used a builder design pattern in the backend
 - **Pendulum Simulation**: Simulate pendulum motion using numerical integration methods.
 - **RESTful APIs**: Enable seamless communication between the frontend and backend.
 
