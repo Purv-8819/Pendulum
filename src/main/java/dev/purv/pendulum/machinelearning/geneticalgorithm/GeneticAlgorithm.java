@@ -21,11 +21,11 @@ public class GeneticAlgorithm <T extends  Individual<T>>{
     private final AtomicBoolean shutdown = new AtomicBoolean(false);
 
     //Constructor
-    private GeneticAlgorithm(PopulationSupplier<T> popSup, int maxGen, Selector<T> sel, Recombiner<T> recom, Mutator<T> mut, IntConsumer getPreparator) {
+    private GeneticAlgorithm(PopulationSupplier<T> popSup, int maxGen, Selector<T> sel, Recombiner<T> recombiner, Mutator<T> mut, IntConsumer getPreparator) {
         this.population = popSup.get();
         this.maxGenerations = maxGen + this.population.getSize();
         this.selector = sel;
-        this.recombiner = recom;
+        this.recombiner = recombiner;
         this.mutator = mut;
         this.getPreparator = getPreparator;
     }
@@ -70,7 +70,7 @@ public class GeneticAlgorithm <T extends  Individual<T>>{
     }
 
     /**
-     * Prepare teh population for the evolution stpe
+     * Prepare teh population for the evolution step
      */
     private void prepareNextEvolution(){
         //Debug purposes
@@ -115,7 +115,7 @@ public class GeneticAlgorithm <T extends  Individual<T>>{
 
     /**
      * Final step of genetic algorithm
-     * Get the best Individiual after the evolution and shutdown alg
+     * Get the best Individual after the evolution and shutdown alg
      * @return the best individual
      */
     private T getBestAndShutdown(){
@@ -123,6 +123,49 @@ public class GeneticAlgorithm <T extends  Individual<T>>{
         T best = this.population.getBestT();
         this.shutdown.set(true);
         return best;
+    }
+
+    //Builder pattern
+    public static class Builder<T extends Individual<T>>{
+
+        //Attributes
+        private final int maxGenerations;
+        private final PopulationSupplier<T> popSupplier;
+        private final Selector<T> selector;
+        private Recombiner<T> recombiner;
+        private Mutator<T> mutator;
+        private IntConsumer genPreperator;
+
+        //Constructor
+        public Builder(int maxGenerations, PopulationSupplier<T> popSupplier, Selector<T> selector){
+            this.maxGenerations = maxGenerations;
+            this.popSupplier = popSupplier;
+            this.selector = selector;
+        }
+
+        //Methods
+        //Set the parameters for the builder
+        public Builder<T> withRecombiner(Recombiner<T> recombiner){
+            this.recombiner = recombiner;
+            return this;
+        }
+
+        public Builder<T> withMutator(Mutator<T> mutator){
+            this.mutator = mutator;
+            return this;
+        }
+
+        public Builder<T> withPreperator(IntConsumer preperator){
+            this.genPreperator = preperator;
+            return this;
+        }
+
+        //Building patter
+        public GeneticAlgorithm<T> build(){
+            return new GeneticAlgorithm<T>(this.popSupplier, this.maxGenerations, this.selector, this.recombiner, this.mutator, this.genPreperator);
+        }
+
+
     }
 
 
