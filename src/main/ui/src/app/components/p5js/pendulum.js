@@ -10,7 +10,7 @@ class Pendulum {
     // length of pendulum
     this.length = length;
     //Angle of pendulum
-    this.angle = 0;
+    this.angle = this.p.PI / 2;
     //Angular Velocity
     this.aVelocity = 0.0;
     //Angular Acceleration
@@ -18,7 +18,8 @@ class Pendulum {
     //Gravity
     this.gravity = 0.4; // Arbitrary constant
     //Air resistance constant
-    this.airResistance = 0.0001;
+    this.airResistance = 0;
+    // this.airResistance = 0.0001;
     //Trolley Instance
     this.trolley = trolley;
   }
@@ -41,19 +42,14 @@ class Pendulum {
     //Air resistance
     var airResistance = this.aVelocity * this.aVelocity * this.airResistance;
 
-    this.aAcceleration = -linAccelComponent - gravityComponent - airResistance;
+    this.aAcceleration = linAccelComponent + gravityComponent - airResistance;
+    this.aAcceleration *= -1;
     this.aVelocity += this.aAcceleration;
     //limit the velocity
     if (this.aVelocity > 7.5) {
       this.aVelocity = 7.5;
     }
     this.angle += this.aVelocity;
-  }
-
-  //Angle is based on 0 degrees being straight down
-  //Rotate the angle by 90 degrees to make 0 degrees straight horizontal
-  angle() {
-    return this.angle + this.p.PI / 2;
   }
 
   //Reset the pendulum to its starting position
