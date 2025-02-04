@@ -4,11 +4,11 @@ import dev.purv.pendulum.machinelearning.ai.nueralnetwork.NueralNetwork;
 import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 
 public class PendulumAi {
-    private System system;
-    private NueralNetwork nn;
+    private final Simulator simulator;
+    private final NueralNetwork nn;
 
     public PendulumAi(NueralNetwork nn) {
-        this.system = new System();
+        this.simulator = new Simulator();
         this.nn = nn;
     }
 
@@ -18,9 +18,9 @@ public class PendulumAi {
      * @return score of the system
      */
     public double startPlaying(int maxTime){
-        while(system.getTickCounter() < maxTime){
+        while(simulator.getTickCounter() < maxTime){
             getDirectionFromNueralNet();
-            system.tick();
+            simulator.tick();
         }
         return calcFitness();
     }
@@ -30,8 +30,8 @@ public class PendulumAi {
         double result = 0d;
 
         //Linear contribution from both
-        result += this.system.getScore();
-        result -= this.system.getCumulativeDistance();
+        result += this.simulator.getScore();
+        result -= this.simulator.getCumulativeDistance();
 
         return result;
 
@@ -46,16 +46,16 @@ public class PendulumAi {
         switch (result.getBiggestIndex()){
             case(0):
             {
-                system.getCart().setMove(Cart.Move.LEFT);
+                simulator.getCart().setMove(Cart.Move.LEFT);
             }
             case(1):{
-                system.getCart().setMove(Cart.Move.RIGHT);
+                simulator.getCart().setMove(Cart.Move.RIGHT);
             }
             case(2):{
-                system.getCart().setMove(Cart.Move.BRAKE);
+                simulator.getCart().setMove(Cart.Move.BRAKE);
             }
             default :{
-                system.getCart().setMove(Cart.Move.NOTHING);
+                simulator.getCart().setMove(Cart.Move.NOTHING);
             }
 
         }

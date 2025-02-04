@@ -2,7 +2,7 @@ package dev.purv.pendulum.simmulator;
 
 import lombok.Getter;
 
-public class System {
+public class Simulator {
     //Attributes
     @Getter
     private final Cart cart;
@@ -14,7 +14,7 @@ public class System {
     @Getter
     private double cumulativeDistance;
 
-    public System() {
+    public Simulator() {
         this.cart = new Cart();
         this.pendulum = new Pendulum(this.cart);
         this.tickCounter = 0;
