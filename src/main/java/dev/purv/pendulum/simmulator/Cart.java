@@ -6,6 +6,7 @@ import lombok.Setter;
 public class Cart {
     //Attributes
 
+    @Getter
     private double position;
     private double velocity;
     @Getter
