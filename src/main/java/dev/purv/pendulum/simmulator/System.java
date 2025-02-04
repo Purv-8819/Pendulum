@@ -11,6 +11,7 @@ public class System {
     private int tickCounter;
     @Getter
     private int score;
+    @Getter
     private double cummulativeDistance;
 
     public System() {

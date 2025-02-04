@@ -13,8 +13,8 @@ public class PendulumAi {
     }
 
     /**
-     * Start the simmulation for maxTime
-     * @param maxTime max number of ticks to run simmulation for
+     * Start the simulation for maxTime
+     * @param maxTime max number of ticks to run simulation for
      * @return score of the system
      */
     public double startPlaying(int maxTime){
@@ -26,7 +26,15 @@ public class PendulumAi {
     }
 
     private double calcFitness(){
-        return system.getScore();
+        //Score is the number of ticks above 0
+        double result = 0d;
+
+        //Linear contribution from both
+        result += this.system.getScore();
+        result -= this.system.getCummulativeDistance();
+
+        return result;
+
     }
 
     /**
