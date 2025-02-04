@@ -12,7 +12,7 @@ public class System {
     @Getter
     private int score;
     @Getter
-    private double cummulativeDistance;
+    private double cumulativeDistance;
 
     public System() {
         this.cart = new Cart();
@@ -28,7 +28,7 @@ public class System {
         if(Math.cos(this.pendulum.getAngle()) < 0){
             score ++;
         }
-        this.cummulativeDistance += Math.abs(this.cart.getPosition());
+        this.cumulativeDistance += Math.abs(this.cart.getPosition());
     }
 
 }

@@ -31,7 +31,7 @@ public class PendulumAi {
 
         //Linear contribution from both
         result += this.system.getScore();
-        result -= this.system.getCummulativeDistance();
+        result -= this.system.getCumulativeDistance();
 
         return result;
 
