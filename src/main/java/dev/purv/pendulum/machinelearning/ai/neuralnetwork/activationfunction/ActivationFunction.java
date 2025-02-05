@@ -1,4 +1,4 @@
-package dev.purv.pendulum.machinelearning.ai.nueralnetwork.activationfunction;
+package dev.purv.pendulum.machinelearning.ai.neuralnetwork.activationfunction;
 
 import java.util.function.DoubleUnaryOperator;
 

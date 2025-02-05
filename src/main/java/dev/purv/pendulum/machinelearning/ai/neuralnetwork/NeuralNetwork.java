@@ -1,26 +1,26 @@
-package dev.purv.pendulum.machinelearning.ai.nueralnetwork;
+package dev.purv.pendulum.machinelearning.ai.neuralnetwork;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.activationfunction.ActivationFunction;
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.activationfunction.Sigmoid;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.activationfunction.ActivationFunction;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.activationfunction.Sigmoid;
 import dev.purv.pendulum.machinelearning.linearalgebra.Randomizer;
 import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 
-public class NueralNetwork {
+public class NeuralNetwork {
    //Member Variables
    int inputSize;
    protected final List<Layer> layers;
 
    //Constructor
-   private NueralNetwork(int inputSize){
+   private NeuralNetwork(int inputSize){
       this.inputSize = inputSize;
       this.layers = new ArrayList<Layer>();
    }
 
-   private NueralNetwork(int inputSize, List<Layer> layers){
+   private NeuralNetwork(int inputSize, List<Layer> layers){
       this.inputSize = inputSize;
       this.layers = layers;
    }
@@ -28,8 +28,8 @@ public class NueralNetwork {
    //Methods
    /**
     * 
-    * @param input input to the nueral network
-    * @return the final result vector from the nueral network
+    * @param input input to the neural network
+    * @return the final result vector from the neural network
     */
    public Vector calcOutput(Vector input){
       return calcAllLayers(input).get(layers.size()-1);
@@ -37,7 +37,7 @@ public class NueralNetwork {
 
    /**
     * 
-    * @param inputVector input to the nueral network
+    * @param inputVector input to the neural network
     * @return List of all the layers and their results
     */
    public List<Vector> calcAllLayers(Vector inputVector){
@@ -48,14 +48,14 @@ public class NueralNetwork {
 
    protected void validateInputVector(Vector inputVector){
       if(inputVector.size() != inputSize){
-         throw new IllegalArgumentException("Input vector must be same size as Nueral network first layer");
+         throw new IllegalArgumentException("Input vector must be same size as Neural network first layer");
       }
    }
 
    /**
     * Calculates the input through all the layers
     * 
-    * @param inputVector input to the nueral network
+    * @param inputVector input to the neural network
     * @return List of all the layers
     */
    private List<Vector> doCalcLayers(Vector inputVector){
@@ -63,7 +63,7 @@ public class NueralNetwork {
       //Add input to beginning
       result.add(inputVector);
 
-      //Go throuhg all the layers and calc the activation based on the pervious layer
+      //Go throuhg all the layers and calc the activation based on the previous layer
       for(int i = 0; i<layers.size(); i++){
          result.add(layers.get(i).calcActivation(result.get(i)));
       }
@@ -73,12 +73,12 @@ public class NueralNetwork {
    }
 
    /**
-    * Randomize all the weights and biases in this nueral network
+    * Randomize all the weights and biases in this neural network
     * @param weightRandomizer
     * @param biasRandomizer
-    * @return the randomized nueral network
+    * @return the randomized neural network
     */
-   public NueralNetwork randomize(Randomizer weightRandomizer, Randomizer biasRandomizer){
+   public NeuralNetwork randomize(Randomizer weightRandomizer, Randomizer biasRandomizer){
       for(int i = 0; i< layers.size(); i++){
          layers.get(i).randomize(weightRandomizer, biasRandomizer);
       }
@@ -87,21 +87,21 @@ public class NueralNetwork {
 
    /**
     * 
-    * @return the layers in this nueral network
+    * @return the layers in this neural network
     */
    public List<Layer> getLayers(){
       return this.layers;
    } 
 
    /**
-    * @return a copy of this nueral network
+    * @return a copy of this neural network
     */
-   public NueralNetwork copy(){
+   public NeuralNetwork copy(){
       //Create a copy of each layer
       List<Layer> result = new ArrayList<>();
       layers.forEach(l -> result.add(l.copy()));
 
-      return new NueralNetwork(this.inputSize, result);
+      return new NeuralNetwork(this.inputSize, result);
    }
 
    public static class Builder {
@@ -141,7 +141,7 @@ public class NueralNetwork {
       }
 
       /**
-       * Adds a layer to the nueral network
+       * Adds a layer to the neural network
        * @param sizeOfLayer size of layer to be added
        * @return builder with layer added
        */
@@ -177,14 +177,14 @@ public class NueralNetwork {
          return this;
       }
 
-      public NueralNetwork build(){
+      public NeuralNetwork build(){
          if(this.isBuilt.getAndSet(true)){
             throw new IllegalStateException( "this builder has already been used for building" );
          } 
 
          layerSize.add(outputSize);
 
-         NueralNetwork nn = new NueralNetwork(inputSize);
+         NeuralNetwork nn = new NeuralNetwork(inputSize);
          //Add first layer based on input size
          nn.layers.add(new Layer(this.layerSize.get(0), inputSize, aFunction));
 

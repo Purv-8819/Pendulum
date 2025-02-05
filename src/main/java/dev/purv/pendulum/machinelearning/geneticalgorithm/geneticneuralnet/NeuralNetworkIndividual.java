@@ -1,17 +1,17 @@
-package dev.purv.pendulum.machinelearning.geneticalgorithm.geneticnueralnet;
+package dev.purv.pendulum.machinelearning.geneticalgorithm.geneticneuralnet;
 
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.NueralNetwork;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.NeuralNetwork;
 import dev.purv.pendulum.machinelearning.geneticalgorithm.Individual;
 import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 
-public class NueralNetworkIndividual implements Individual<NueralNetworkIndividual>{
+public class NeuralNetworkIndividual implements Individual<NeuralNetworkIndividual>{
    //Attributes
-   private NueralNetwork nueralNet;
-   private NueralNetworkFitnessFunction fitnessFunc;
+   private NeuralNetwork nueralNet;
+   private NeuralNetworkFitnessFunction fitnessFunc;
    private double fitness;
 
    //Constructor
-   public NueralNetworkIndividual(NueralNetwork nn, NueralNetworkFitnessFunction ff){
+   public NeuralNetworkIndividual(NeuralNetwork nn, NeuralNetworkFitnessFunction ff){
       this.nueralNet = nn;
       this.fitnessFunc = ff;
    }
@@ -22,7 +22,7 @@ public class NueralNetworkIndividual implements Individual<NueralNetworkIndividu
     * Get the nueral net of this indiviidual
     * @return the nueral network
     */
-   public NueralNetwork getNueralNetwork(){
+   public NeuralNetwork getNueralNetwork(){
       return this.nueralNet;
    }
 
@@ -37,8 +37,8 @@ public class NueralNetworkIndividual implements Individual<NueralNetworkIndividu
    }
 
    @Override
-   public NueralNetworkIndividual copy(){
-      NueralNetworkIndividual newIndiv = new NueralNetworkIndividual(nueralNet.copy(), fitnessFunc);
+   public NeuralNetworkIndividual copy(){
+      NeuralNetworkIndividual newIndiv = new NeuralNetworkIndividual(nueralNet.copy(), fitnessFunc);
       //Set Same refrence
       newIndiv.fitnessFunc = this.fitnessFunc;
       return newIndiv;
@@ -57,7 +57,7 @@ public class NueralNetworkIndividual implements Individual<NueralNetworkIndividu
     * Get the fitness function
     * @return the fitness function
     */
-   public NueralNetworkFitnessFunction getFitnessFunction(){
+   public NeuralNetworkFitnessFunction getFitnessFunction(){
       return this.fitnessFunc;
    }
 }

@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.Layer;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.Layer;
 import dev.purv.pendulum.machinelearning.geneticalgorithm.Population;
-import dev.purv.pendulum.machinelearning.geneticalgorithm.geneticnueralnet.NueralNetworkIndividual;
+import dev.purv.pendulum.machinelearning.geneticalgorithm.geneticneuralnet.NeuralNetworkIndividual;
 
-public class NueralNetworkUniformCrossoverRecombiner implements Recombiner<NueralNetworkIndividual>{
+public class NeuralNetworkUniformCrossoverRecombiner implements Recombiner<NeuralNetworkIndividual>{
 
    //Attribute
    private int numParetnsPerChild;
@@ -21,14 +21,14 @@ public class NueralNetworkUniformCrossoverRecombiner implements Recombiner<Nuera
    //Methods
 
    @Override
-   public void recombine(Population<NueralNetworkIndividual> pop, int goalSize){
+   public void recombine(Population<NeuralNetworkIndividual> pop, int goalSize){
       if(numParetnsPerChild < 1 || numParetnsPerChild > pop.getSize()){
          throw new IllegalArgumentException("Number of parents per child must be between 1 and size of population");
       }
 
-      List<NueralNetworkIndividual> indivs = pop.getIndividuals();
+      List<NeuralNetworkIndividual> indivs = pop.getIndividuals();
       while(indivs.size() < goalSize){
-         List<NueralNetworkIndividual> parents = new ArrayList<>();
+         List<NeuralNetworkIndividual> parents = new ArrayList<>();
          //Create parents list
          for(int i = 0; i<numParetnsPerChild; i++){
             int randomIndex = ThreadLocalRandom.current().nextInt(indivs.size());
@@ -39,8 +39,8 @@ public class NueralNetworkUniformCrossoverRecombiner implements Recombiner<Nuera
       }
    }
 
-   private NueralNetworkIndividual makeChild(List<NueralNetworkIndividual> parents){
-      NueralNetworkIndividual child = parents.get(0).copy();
+   private NeuralNetworkIndividual makeChild(List<NeuralNetworkIndividual> parents){
+      NeuralNetworkIndividual child = parents.get(0).copy();
 
       //Loop throuhg all layers of the child's nueral net
       for(int i = 0; i<child.getNueralNetwork().getLayers().size(); i++){
@@ -58,7 +58,7 @@ public class NueralNetworkUniformCrossoverRecombiner implements Recombiner<Nuera
     * @param child child
     * @param layerIndex index of layer currently on
     */
-   private void combineWeights(List<NueralNetworkIndividual> parents, NueralNetworkIndividual child, int layerIndex){
+   private void combineWeights(List<NeuralNetworkIndividual> parents, NeuralNetworkIndividual child, int layerIndex){
       Layer here = child.getNueralNetwork().getLayers().get(layerIndex);
 
       //Loop throuhg all the weights at that layer
@@ -80,7 +80,7 @@ public class NueralNetworkUniformCrossoverRecombiner implements Recombiner<Nuera
     * @param child child 
     * @param layerIndex index of layer to set
     */
-   private void combineBias(List<NueralNetworkIndividual> parents, NueralNetworkIndividual child, int layerIndex){
+   private void combineBias(List<NeuralNetworkIndividual> parents, NeuralNetworkIndividual child, int layerIndex){
       //Current layer of child
       Layer here = child.getNueralNetwork().getLayers().get(layerIndex);
 

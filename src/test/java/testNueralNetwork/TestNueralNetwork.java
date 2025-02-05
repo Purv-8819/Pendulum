@@ -1,7 +1,7 @@
 package testNueralNetwork;
 
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.Layer;
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.NueralNetwork;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.Layer;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.NeuralNetwork;
 import dev.purv.pendulum.machinelearning.linearalgebra.Matrix;
 import dev.purv.pendulum.machinelearning.linearalgebra.Randomizer;
 import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
@@ -23,7 +23,7 @@ public class TestNueralNetwork {
    public void testBasic(){
       Randomizer set1 = setn(1);
       //1 node input to 1 node output
-      NueralNetwork oneNode = new NueralNetwork.Builder(1, 1).withBiasRandomizer(set1).withWeightRandomizer(set1).build();
+      NeuralNetwork oneNode = new NeuralNetwork.Builder(1, 1).withBiasRandomizer(set1).withWeightRandomizer(set1).build();
 
       List<Layer> list = oneNode.getLayers();
       assertEquals(1, list.size());
@@ -42,7 +42,7 @@ public class TestNueralNetwork {
       Randomizer set1 = setn(1);
       //2-4-3
       //2 input, 4 middle hidden, 3 output
-      NueralNetwork twoLayer = new NueralNetwork.Builder(2, 3).withBiasRandomizer(set1).withWeightRandomizer(set1).addLayer(4).build();
+      NeuralNetwork twoLayer = new NeuralNetwork.Builder(2, 3).withBiasRandomizer(set1).withWeightRandomizer(set1).addLayer(4).build();
 
       List<Layer> list = twoLayer.getLayers();
       assertEquals(2, list.size());
@@ -73,7 +73,7 @@ public class TestNueralNetwork {
       Randomizer set2 = setn(2);
       Randomizer set0 = setn(0);
       //1 node input to 1 node output
-      NueralNetwork oneNode = new NueralNetwork.Builder(1, 1).withBiasRandomizer(set0).withWeightRandomizer(set2).withActivationFunction(x->x).build();
+      NeuralNetwork oneNode = new NeuralNetwork.Builder(1, 1).withBiasRandomizer(set0).withWeightRandomizer(set2).withActivationFunction(x->x).build();
 
       Vector output = oneNode.calcOutput(new Vector(1d));
       assertEquals(1, output.size());
@@ -81,7 +81,7 @@ public class TestNueralNetwork {
       assertEquals(2, output.get(0));
 
 
-      NueralNetwork medium = new NueralNetwork.Builder(2, 2).withBiasRandomizer(set0).withWeightRandomizer(set2).withActivationFunction(x->x).addLayer(3).build();
+      NeuralNetwork medium = new NeuralNetwork.Builder(2, 2).withBiasRandomizer(set0).withWeightRandomizer(set2).withActivationFunction(x->x).addLayer(3).build();
 
       List<Vector> mediumOutputList = medium.calcAllLayers(new Vector(1, 1));
       assertEquals(2, mediumOutputList.size());
@@ -103,14 +103,14 @@ public class TestNueralNetwork {
       Randomizer set1 = setn(1);
 
       //1 node input to 1 node output
-      NueralNetwork oneNode = new NueralNetwork.Builder(1, 1).withBiasRandomizer(set2).withWeightRandomizer(set1).withActivationFunction(x->x).build();
+      NeuralNetwork oneNode = new NeuralNetwork.Builder(1, 1).withBiasRandomizer(set2).withWeightRandomizer(set1).withActivationFunction(x->x).build();
 
       Vector output = oneNode.calcOutput(new Vector(0d));
       assertEquals(1, output.size());
 
       assertEquals(2, output.get(0));
 
-      NueralNetwork medium = new NueralNetwork.Builder(2, 2).withBiasRandomizer(set2).withWeightRandomizer(set1).withActivationFunction(x->x).addLayer(3).build();
+      NeuralNetwork medium = new NeuralNetwork.Builder(2, 2).withBiasRandomizer(set2).withWeightRandomizer(set1).withActivationFunction(x->x).addLayer(3).build();
 
       List<Vector> outputList = medium.calcAllLayers(new Vector(0d, 0d));
       assertEquals(2, outputList.size());

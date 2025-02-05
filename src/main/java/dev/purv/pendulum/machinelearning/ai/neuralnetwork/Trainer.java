@@ -1,16 +1,16 @@
-package dev.purv.pendulum.machinelearning.ai.nueralnetwork;
+package dev.purv.pendulum.machinelearning.ai.neuralnetwork;
 
 import java.util.List;
 import java.util.function.Supplier;
 
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.Backpropagation.BatchTrainingResult;
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.costfunction.CostFunction;
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.costfunction.SummedCostFunction;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.Backpropagation.BatchTrainingResult;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.costfunction.CostFunction;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.costfunction.SummedCostFunction;
 import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 
 public class Trainer {
 
-   private final NueralNetwork nueralNetwork;
+   private final NeuralNetwork nueralNetwork;
    private final Supplier<Batch> batchSupplier;
    private final double learningRate;
    private final int epochs;
@@ -18,7 +18,7 @@ public class Trainer {
    private final boolean logging;
 
    //Constructor
-   private Trainer(NueralNetwork nueralNetwork,Supplier<Batch> batchSupplier,double learningRate,int epochs,CostFunction costFunction,boolean logging){
+   private Trainer(NeuralNetwork nueralNetwork, Supplier<Batch> batchSupplier, double learningRate, int epochs, CostFunction costFunction, boolean logging){
       this.nueralNetwork = nueralNetwork;
       this.batchSupplier = batchSupplier;
       this.learningRate = learningRate;
@@ -58,14 +58,14 @@ public class Trainer {
    }  
 
    public static class Builder{
-      private final NueralNetwork nueralNetwork;
+      private final NeuralNetwork nueralNetwork;
       private final Supplier<Batch> batchSupplier;
       private final double learningRate;
       private final int epochs;
       private CostFunction costFunction = new SummedCostFunction();
       private boolean logging = false;
 
-      public Builder(NueralNetwork nn, Supplier<Batch> batchSupplier, double learningRate, int epochs){
+      public Builder(NeuralNetwork nn, Supplier<Batch> batchSupplier, double learningRate, int epochs){
          this.nueralNetwork = nn;
          this.batchSupplier = batchSupplier;
          this.learningRate = learningRate;

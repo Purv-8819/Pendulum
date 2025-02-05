@@ -1,7 +1,7 @@
-package dev.purv.pendulum.machinelearning.ai.nueralnetwork;
+package dev.purv.pendulum.machinelearning.ai.neuralnetwork;
 
 
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.activationfunction.ActivationFunction;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.activationfunction.ActivationFunction;
 import dev.purv.pendulum.machinelearning.linearalgebra.LinearAlgebra;
 import dev.purv.pendulum.machinelearning.linearalgebra.Matrix;
 import dev.purv.pendulum.machinelearning.linearalgebra.Randomizer;
