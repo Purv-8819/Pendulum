@@ -14,7 +14,7 @@ public class NeuralNetworkUniformCrossoverRecombiner implements Recombiner<Neura
    private int numParetnsPerChild;
 
    //Constructor
-   public NueralNetworkUniformCrossoverRecombiner(int parentsPerChild){
+   public NeuralNetworkUniformCrossoverRecombiner(int parentsPerChild){
       this.numParetnsPerChild = parentsPerChild;
    }
 
