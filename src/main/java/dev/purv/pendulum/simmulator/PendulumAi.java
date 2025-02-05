@@ -1,13 +1,15 @@
 package dev.purv.pendulum.simmulator;
 
-import dev.purv.pendulum.machinelearning.ai.nueralnetwork.NueralNetwork;
+import dev.purv.pendulum.machinelearning.ai.neuralnetwork.NeuralNetwork;
 import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
+import lombok.Getter;
 
 public class PendulumAi {
     private final Simulator simulator;
-    private final NueralNetwork nn;
+    @Getter
+    private final NeuralNetwork nn;
 
-    public PendulumAi(NueralNetwork nn) {
+    public PendulumAi(NeuralNetwork nn) {
         this.simulator = new Simulator();
         this.nn = nn;
     }
@@ -19,7 +21,7 @@ public class PendulumAi {
      */
     public double startPlaying(int maxTime){
         while(simulator.getTickCounter() < maxTime){
-            getDirectionFromNueralNet();
+            getDirectionFromNeuralNet();
             simulator.tick();
         }
         return calcFitness();
@@ -38,10 +40,10 @@ public class PendulumAi {
     }
 
     /**
-     * Input the current state of the system and get the move from the nueral network
+     * Input the current state of the system and get the move from the neural network
      */
-    private void getDirectionFromNueralNet(){
-        Vector input = new Vector();
+    private void getDirectionFromNeuralNet(){
+        Vector input = simulator.getState();
         Vector result = nn.calcOutput(input);
         switch (result.getBiggestIndex()){
             case(0):
@@ -60,6 +62,4 @@ public class PendulumAi {
 
         }
     }
-
-
 }

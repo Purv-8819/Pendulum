@@ -6,7 +6,9 @@ public class Pendulum {
     private final double length;
     @Getter
     private double angle;
+    @Getter
     private double angularVelocity;
+    @Getter
     private double angularAcceleration;
     private static final double gravity = 9.8;
     private final Cart cart;

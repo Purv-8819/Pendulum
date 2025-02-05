@@ -8,6 +8,7 @@ public class Cart {
 
     @Getter
     private double position;
+    @Getter
     private double velocity;
     @Getter
     private double acceleration;

@@ -1,5 +1,6 @@
 package dev.purv.pendulum.simmulator;
 
+import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 import lombok.Getter;
 
 public class Simulator {
@@ -29,6 +30,15 @@ public class Simulator {
             score ++;
         }
         this.cumulativeDistance += Math.abs(this.cart.getPosition());
+    }
+
+    /**
+     * The state consists of the cart's position, velocity, and acceleration, as well as,
+     * the pendulum's angle, angularVelocity, angularAcceleration
+     * @return vector containing the state of the simulation
+     */
+    public Vector getState(){
+        return new Vector(cart.getPosition(), cart.getVelocity(), cart.getAcceleration(), pendulum.getAngle(), pendulum.getAngularVelocity(), pendulum.getAngularAcceleration());
     }
 
 }
