@@ -4,6 +4,9 @@ import dev.purv.pendulum.machinelearning.ai.neuralnetwork.NeuralNetwork;
 import dev.purv.pendulum.machinelearning.linearalgebra.Vector;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PendulumAi {
     private final Simulator simulator;
     @Getter
@@ -61,5 +64,16 @@ public class PendulumAi {
             }
 
         }
+    }
+
+    public List<Cart.Move> getMoveList(int maxTime){
+        List<Cart.Move> result = new ArrayList<>();
+        while(simulator.getTickCounter() < maxTime){
+            getDirectionFromNeuralNet();
+            result.add(simulator.getCart().getMove());
+            simulator.tick();
+        }
+
+        return  result;
     }
 }

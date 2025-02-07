@@ -15,6 +15,7 @@ public class Cart {
     private double friction;
     private double size;
     @Setter
+    @Getter
     private Move move = Move.NOTHING;
     private Pendulum attached;
     public enum Move {LEFT, RIGHT, BRAKE, NOTHING};
