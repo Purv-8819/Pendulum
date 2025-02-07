@@ -84,10 +84,10 @@ public class NeuralNetworkUniformCrossoverRecombiner implements Recombiner<Neura
       //Current layer of child
       Layer here = child.getNueralNetwork().getLayers().get(layerIndex);
 
-      //Loop throuhg all the biases
+      //Loop through all the biases
       for(int i = 0; i<here.getBias().size(); i++){
          //Get random parent
-         int parentIndex = ThreadLocalRandom.current().nextInt(here.getBias().size());
+         int parentIndex = ThreadLocalRandom.current().nextInt(parents.size());
          double parentVal = parents.get(parentIndex).getNueralNetwork().getLayers().get(layerIndex).getBias().get(i);
          //Set child's corresponding value
          here.getBias().set(i, parentVal);
