@@ -37,6 +37,7 @@ public class Pendulum {
 
         //Add the acceleration to the velocity
         this.angularVelocity += this.angularAcceleration;
+//        this.angularVelocity = Math.max(this.angularVelocity, 2*Math.PI - .5);
 
         //Add the velocity to angle
         this.angle += this.angularVelocity;
