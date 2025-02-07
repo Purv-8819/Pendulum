@@ -35,8 +35,8 @@ public class PendulumAi {
         double result = 0d;
 
         //Linear contribution from both
-        result += this.simulator.getScore();
-        result -= this.simulator.getCumulativeDistance();
+        result += (double) this.simulator.getScore();
+        result -= this.simulator.getCumulativePendulumSpeed();
 
         return result;
 
@@ -52,15 +52,23 @@ public class PendulumAi {
             case(0):
             {
                 simulator.getCart().setMove(Cart.Move.LEFT);
+                break;
             }
             case(1):{
                 simulator.getCart().setMove(Cart.Move.RIGHT);
+                break;
             }
             case(2):{
                 simulator.getCart().setMove(Cart.Move.BRAKE);
+                break;
             }
-            default :{
+            case(3) :{
                 simulator.getCart().setMove(Cart.Move.NOTHING);
+                break;
+            }
+            default: {
+                simulator.getCart().setMove(null);
+                break;
             }
 
         }
