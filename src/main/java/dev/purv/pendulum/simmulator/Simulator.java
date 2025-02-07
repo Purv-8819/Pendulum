@@ -11,9 +11,11 @@ public class Simulator {
     @Getter
     private int tickCounter;
     @Getter
-    private int score;
+    private double score;
     @Getter
     private double cumulativeDistance;
+    @Getter
+    private double cumulativePendulumSpeed;
 
     public Simulator() {
         this.cart = new Cart();
@@ -25,11 +27,11 @@ public class Simulator {
     public void tick(){
         this.cart.update();
         this.tickCounter++;
-        //Check if above the cart/ in the upright position
-        if(Math.cos(this.pendulum.getAngle()) < 0){
-            score ++;
-        }
+        //The score is the sum of the -cos of the angle
+        score -= Math.cos(this.pendulum.getAngle());
+
         this.cumulativeDistance += Math.abs(this.cart.getPosition());
+        this.cumulativePendulumSpeed += Math.abs(this.pendulum.getAngularVelocity());
     }
 
     /**
