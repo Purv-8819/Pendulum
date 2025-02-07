@@ -58,6 +58,7 @@ public class GeneticAlgorithm <T extends  Individual<T>>{
     private void evolute(){
         for(int i = population.getGeneration(); i < maxGenerations; i++){
             nextGeneration();
+            System.out.println("Generation: " + i);
         }
     }
 
