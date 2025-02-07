@@ -59,6 +59,8 @@ public class GeneticAlgorithm <T extends  Individual<T>>{
         for(int i = population.getGeneration(); i < maxGenerations; i++){
             nextGeneration();
             System.out.println("Generation: " + i);
+            System.out.println("\tAverage: " + this.population.getAverageFitness());
+
         }
     }
 

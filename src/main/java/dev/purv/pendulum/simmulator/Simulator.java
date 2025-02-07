@@ -16,21 +16,29 @@ public class Simulator {
     private double cumulativeDistance;
     @Getter
     private double cumulativePendulumSpeed;
+    @Getter
+    private double cumulativeCartSpeed;
+    @Getter
+    private double maxCartSpeed;
 
     public Simulator() {
         this.cart = new Cart();
         this.pendulum = new Pendulum(this.cart);
         this.tickCounter = 0;
         this.score = 0;
+        maxCartSpeed = 0;
     }
 
     public void tick(){
         this.cart.update();
         this.tickCounter++;
         //The score is the sum of the -cos of the angle
-        score -= Math.cos(this.pendulum.getAngle());
+        score += Math.cos(this.pendulum.getAngle()) * -1;
+
+        maxCartSpeed = Math.max(this.maxCartSpeed, Math.abs(this.cart.getVelocity()));
 
         this.cumulativeDistance += Math.abs(this.cart.getPosition());
+        this.cumulativeCartSpeed += Math.abs(this.cart.getVelocity());
         this.cumulativePendulumSpeed += Math.abs(this.pendulum.getAngularVelocity());
     }
 

@@ -123,8 +123,8 @@ public class Vector implements ApplyAble<Vector> {
     * @return The index of the biggest value
     */
    public int getBiggestIndex() {
-      double max = Double.MIN_VALUE;
-      int maxIndex = -1;
+      double max = data[0];
+      int maxIndex = 0;
       for (int i = 0; i < this.size(); i++) {
          if (this.data[i] > max) {
             max = this.data[i];

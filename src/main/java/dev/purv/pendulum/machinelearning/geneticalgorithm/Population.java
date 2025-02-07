@@ -1,11 +1,6 @@
 package dev.purv.pendulum.machinelearning.geneticalgorithm;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Population <T extends Individual<T>> {
@@ -53,7 +48,7 @@ public class Population <T extends Individual<T>> {
     */
    public double getAverageFitness(){
       //Convert list to stream, map each individual to their fitness value, get the optional double and get actual double val
-      return individuals.stream().mapToDouble(x -> x.getFitness()).average().getAsDouble();
+      return individuals.stream().mapToDouble(Individual::getFitness).average().getAsDouble();
    }
 
    /**

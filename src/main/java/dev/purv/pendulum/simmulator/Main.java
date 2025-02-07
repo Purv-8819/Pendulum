@@ -26,7 +26,7 @@ public class Main {
    public static final int MAX_GENS = 1000;
    public static final Selector<NeuralNetworkIndividual> SELECTOR = new EliteSelector<>(0.2);
    public static final Recombiner<NeuralNetworkIndividual> RECOMBINER = new NeuralNetworkUniformCrossoverRecombiner(2);
-   public static final Mutator<NeuralNetworkIndividual> MUTATOR = new NeuralNetworkRandomMutator(0.75, 0.5, new Randomizer(-0.3, 0.3), 0.1);
+   public static final Mutator<NeuralNetworkIndividual> MUTATOR = new NeuralNetworkRandomMutator(0.75, 0.6, new Randomizer(-1, 1), 0.1);
 
    public static void main(String[] args) {
       NeuralNetworkSupplier nn = () -> new NeuralNetwork.Builder(6, 4)

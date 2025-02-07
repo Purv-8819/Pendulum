@@ -27,6 +27,15 @@ class Trolley {
     this.accel -= 0.1;
   }
 
+  brake() {
+    //Move the opposite way currently travelling
+    this.accel += this.getSign(this.speed) * -0.05;
+  }
+
+  getSign(val) {
+    return val < 0 ? -1 : 1;
+  }
+
   //Reset the acceleration of the trolley
   resetAccel() {
     this.accel = 0;
